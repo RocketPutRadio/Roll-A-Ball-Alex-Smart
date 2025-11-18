@@ -5,8 +5,6 @@ public class EnemyMovement : MonoBehaviour
 {
  
  public Transform player;
-
- 
  private NavMeshAgent navMeshAgent;
 
  
@@ -20,10 +18,9 @@ public class EnemyMovement : MonoBehaviour
  void Update()
     {
  
- if (player != null)
-        {    
- 
-            navMeshAgent.SetDestination(player.position);
-        }
-    }
+        if (player != null)
+                {    
+                    navMeshAgent.SetDestination(player.position);
+                }
+            }
 }

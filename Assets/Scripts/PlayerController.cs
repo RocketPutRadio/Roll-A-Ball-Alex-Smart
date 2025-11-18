@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -49,31 +46,39 @@ public class PlayerController : MonoBehaviour
  
  void OnTriggerEnter(Collider other) 
     {
- 
  if (other.gameObject.CompareTag("PickUp")) 
         {
- 
             other.gameObject.SetActive(false);
 
- 
             count = count + 1;
 
- 
             SetCountText();
         }
     }
 
- 
  void SetCountText() 
     {
- 
         countText.text = "Count: " + count.ToString();
 
-
- if (count >= 14)
+ if (count >= 12)
         {
-
             winTextObject.SetActive(true);
+
+            Destroy(GameObject.FindGameObjectWithTag("Enemy"));
         }
     }
+
+private void OnCollisionEnter(Collision collision)
+{
+ if (collision.gameObject.CompareTag("Enemy"))
+    {
+        Destroy(gameObject); 
+         winTextObject.gameObject.SetActive(true);
+        winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+ 
+    }
+
+}
+
+
 }

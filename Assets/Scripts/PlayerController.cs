@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
  private float movementX;
  private float movementY;
 
- public float speed = 0;
+ public float speed = 10;
 
  public TextMeshProUGUI countText;
 

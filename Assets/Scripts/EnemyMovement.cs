@@ -23,4 +23,17 @@ public class EnemyMovement : MonoBehaviour
                     navMeshAgent.SetDestination(player.position);
                 }
             }
+
+            
+                void OnTriggerEnter (Collider other)
+            
+            {
+             if (other.gameObject. CompareTag ("Teleport"))
+                {
+                    other.gameObject.SetActive(false);
+                    transform.position = new Vector3 (0f,0.5f,0f);
+                }
+            }
+
 }
+
